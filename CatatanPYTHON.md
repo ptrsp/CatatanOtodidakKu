@@ -1,6 +1,8 @@
 # PEMBELAJARAN PYTHON
 List Pembahasan :
 * Looping
+  - For
+  - While
 * Indeks
 * List, Dictionary, Tupple, SET
 * Define Function
@@ -8,10 +10,11 @@ List Pembahasan :
 * Docstring
 * Inheritance
 * From Import Module
-* Reading and Writing Files
 * Managing Files And Directory
+* Reading and Writing Files
 * Reading and Writing CSV
 * Regular Expression
+* Exception
 * Builtin Function
 
 ## For Loop
