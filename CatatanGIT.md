@@ -14,6 +14,9 @@ Version Control System :
 * mengethaui siapa yang melakukan dan kapan perubahan terjadi dan apa yang dirubah
 * memungkinkan kita untuk kembali ke keadaan sebelum perubahan (checkout)
 
+## Apa GIT
+Merupakan software yang bertindak sebagai sebuah VCS terdistribusi untuk mengelola / memantau / men-tracking perubahan file di dalam folder. Folder dalam VSC biasa disebut repo / repository. Segala perubahan yang terjadi didalam repo, perlu dilakukan perekaman/snapshoot untuk kemudian di-commit agar dapat tersimpan di sistem VCS.
+
 ### Sub Bahasan
 Deskripsi Pembahasanmu
 ```
