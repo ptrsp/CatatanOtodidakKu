@@ -1,23 +1,61 @@
 # PEMBELAJARAN PYTHON
 List Pembahasan :
-* Looping
-  - While and Do-While
-  - For
 * Indeks
 * List, Dictionary, Tupple, SET
+* Looping
 * Define Function
 * Object Oriented Programming (OOP)
-* Docstring
 * Inheritance
 * From Import Module
+* Docstring
+* File I/O
 * Managing Files And Directory
-* Date and Time
 * Reading and Writing Files
 * Reading and Writing CSV
-* Regular Expression
+* Date and Time
 * Exception
+* Regular Expression
 * Builtin Function
 
+## Indexing / Indeks
+Melakukan pengambilan nilai dengan menyebutkan indeks : 
+* varX[noIndex] atau varX[-noIndex]
+* varX[startIndex:endIndex] atau varX[:endIndex] atau varX[startIndex:]
+#### Contoh Program
+```
+Teks = "Awu dan Kamu"
+revTeks = Teks[0:1]+"k"+Teks[2:]
+print(revTeks)
+-------------------------------------------------------------------------------------
+Output :
+Aku dan Kamu
+-------------------------------------------------------------------------------------
+```
+## List, Dictionary, Tupple, SET
+Jenis Jenis Struktur Data : 
+* listData = [“value1”, 2, “value3”, 4]
+* dictData = {“key1” : “value1”, 2 : 2, “key3” : 3}
+* tupleData = ('fisika', 'kimia', 1993, 2017)
+* setData = {1,”IKKEH”,10}
+
+Note :
+1.	Tuple data tidak bisa diubah isinya
+2.	Set data tidak bisa dipanggil dengan indeks dan hanya bisa menyimpan satu value yang sama, misal di SET mu ada value 1, kemudian kamu insert lagi value 1, maka tetap hanya akan tersimpan sebuah value 1 saja.
+
+```
+dictFile = {"foto": 10, "Video" : "MP4, MPEG"}
+print(dictFile["Video"])
+-------------------------------------------------------------------------------------
+Output :
+MP4, MPEG
+-------------------------------------------------------------------------------------
+dictFile["Suara"] = 10
+print(dictFile)
+-------------------------------------------------------------------------------------
+Output :
+{'foto': 10, 'Video': 'MP4, MPEG', 'Suara': 10}
+-------------------------------------------------------------------------------------
+```
 ## For Loop
 Melakukan perulangan beberapa kali hingga mencapai  nilai yang ditentukan.
 
