@@ -1,3 +1,5 @@
+import managefile_subcode as MF
+import RegexMatcher as RM
 statTry=1
 while(statTry==1): ############################################# Perulangan Input Data
     statFile = 0
@@ -10,7 +12,7 @@ while(statTry==1): ############################################# Perulangan Inpu
             statFile=1
         print("Format Direktori = X:\\Dir1\\Dir2")
         nameSD = input("#Masukkan Lokasi Direktori: ")
-        InstancePath=RegexMatcher(nameSD)
+        InstancePath= RM.RegexMatcher(nameSD)
         nameSD=InstancePath.PathMatcher()
         if(nameSD!="False"):
             statSD=1
@@ -35,11 +37,11 @@ while(statTry==1): ############################################# Perulangan Inpu
         while(statDD==0):
             print("Format Direktori = X:\\Dir1\\Dir2")
             nameDD=input("Masukkan Direktori Tujuan : ")
-            InstancePath=RegexMatcher(nameDD)
+            InstancePath=RM.RegexMatcher(nameDD)
             nameDD=InstancePath.PathMatcher()
             if(nameDD!="False"):
                 statDD=1
-                mfile=Managefile(nameFile,nameSD)
+                mfile=MF.Managefile(nameFile,nameSD)
                 mfile.MoveDupDelFile(nameDD,numAct)
             if(statDD==0):
                 print("Format Direktori Tidak Sesuai")
@@ -54,7 +56,7 @@ while(statTry==1): ############################################# Perulangan Inpu
                 if(statConfirm=="n"):
                     print("Penghapusan File Dibatalkan")
                 if(statConfirm=="y"):
-                    mf = Managefile(nameFile,nameSD)
+                    mf = MF.Managefile(nameFile,nameSD)
                     mf.MoveDupDelFile(nameDD,numAct)
                     print("Penghapusan File Berhasil")
             else:
