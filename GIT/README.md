@@ -1,33 +1,112 @@
-# PEMBELAJARAN GIT DAN GITHUB
-List Pembahasan :
-* [Apa Itu Version Control System](http://example.com/)
-* [Apa Itu GIT dan Bekerja Dengan GIT](http://example.com/)
-* [Apa Itu GITHUB dan Bekerja Dengan GITHUB](http://example.com/)
-* [Bekerja Dengan GIT dan GITHUB](http://example.com/)
-
-## Apa Itu Version Control System
-Version Control System, merupakan sistem yang mengelola perubahan dari sebuah dokumen, program komputer, website dan kumpulan informasi lain. Ketika kamu mengelola code mu sendiri, mungkin tidak masalah kamu manage codenya dengan manual memberikan informasi versi versi dari code. namun hal, tersebut akan sangat menyusahkan apabila kamu bekerja tim. meskipun kamu mengakalinya, tiap orang mengerjakan bagian masing2 di laptop sendiri2, itu tetap menyusahkan karena pada akhirnya tetap perlu menggabungkan keseluruhan code (Kegiatan Kolaborasi).
-
-Version Control System :
-* Sebuah sistem yang menyimpan 'rekaman/snapshot' perubahan pada source code
-* Memungkinkan bekerja berkolaborasi dengan baik
-* mengethaui siapa yang melakukan dan kapan perubahan terjadi dan apa yang dirubah
-* memungkinkan kita untuk kembali ke keadaan sebelum perubahan (checkout)
-
-## Apa GIT
-Merupakan software yang bertindak sebagai sebuah VCS terdistribusi untuk mengelola / memantau / men-tracking perubahan file di dalam folder. Folder dalam VSC biasa disebut repo / repository. Segala perubahan yang terjadi didalam repo, perlu dilakukan perekaman/snapshoot untuk kemudian di-commit agar dapat tersimpan di sistem VCS.
-
-### Sub Bahasan
-Deskripsi Pembahasanmu
+# CheatSheet Syntax GIT Version Control System
+## Stage and Snapshot Section
+### # git status
 ```
-code/syntax/programmu
+git status
 ```
-### Sub Bahasan
-Deskripsi Pembahasanmu
-#### Sub-Sub Bahasan
-Deskripsi Pembahasanmu
-### Sub Bahasan
-Deskripsi Pembahasanmu
+**Deskripsi Penjelasan**
+
+Digunakan untuk mengecek segala aktifitas didalam working direktori, entah itu untracked file, modified file, deleted file, dll.
+### # git add nama_file
+```
+git add progMain.py
+```
+**Deskripsi Penjelasan**
+
+Digunakan untuk memindahkan file bersangkutan ke stagging area, untuk nantinya siap dicommit. sedangkan untuk menambahkan lebih dari 1 file sekaligus dapat menggunakan ```git add .```.
+### # git commit -m "Catatan/Pesan Deskripsi Singkat Commitmu"
+```
+git commit -m "Menambahkan File progSub.py dan Mengubah File progMain.py"
+```
+**Deskripsi Penjelasan**
+
+Digunakan untuk menyimpan snapshot perubahan/changes, ke system git. Terdapat perintah lain untuk mempersingkat git add dan git commit yaitu ```git commit -am "Pesan Commitmu"```, dengan catatan file file yang akan dicommit bukan merupakan untracked file.
+### # git log
+```
+git log
+```
+**Deskripsi Penjelasan**
+
+Digunakan untuk menampilkan daftar commit yang telah dilakukan. Untuk menampilkan daftar commit dalam bentuk flow dan lebih sederhana, dapat menggunakan syntax ```git log --all --decorate --oneline --graph```
+
+## Restore/Remove Snapshot
+### # git restore nama_file
+```
+git restore progMain.py
+```
+**Deskripsi Penjelasan**
+
+Digunakan untuk mengembalikan file progMain.py ke kondisi semula commit terbaru, apabila file bersangkutan termodifikasi (edit/delet/rename).
+### # git restore --staged nama_file
+```
+git restore --staged progMain.py
+```
+**Deskripsi Penjelasan**
+
+Berbeda dengan sebelumnya, penambahkan --staged akan meminta untuk mengembalikan 1 posisi stage ke belakang dari sebuah file. semisal file yang semulanya siap di commit, kita dapat mengembalikannya ke posisi untracked file.
+### # git rm --cached nama_file
+```
+git rm --cached progMain.py
+```
+**Deskripsi Penjelasan**
+
+Digunakan untuk menghapus "file cached" dari snapshot sebuah commit, dengan menjalankan syntax ini pada suatu file yang sudah terkomit, maka keberadaan file secara logic sudah tidak ada di system git, namun keberadaan file fisik masih ada (file tersebut berada dalam untracked file). untuk membatalkannya/mengembalikan seperti semula dapat menggunakan syntax ```git restore --staged file_name```.
+
+## Managing Branch Section
+### # git branch
+```
+git branch
+```
+**Deskripsi Penjelasan**
+
+Digunakan untuk menampilkan daftar branch yang ada.
+### # git branch nama_branch
+```
+git branch devStag
+```
+**Deskripsi Penjelasan**
+
+Digunakan untuk membuat sebuah branch "devStag", dari branch yang aktif.
+### # git branch -d nama_branch
+```
+git branch -d devStag
+```
+**Deskripsi Penjelasan**
+
+Digunakan untuk menghapus branch bersangkutan, apabila branch bersangkutan belum ter-merge secara penuh maka akan ada peringatan, namun jika kamu memaksakan penghapusan dapat menggunakan ```git branch -D devStag```.
+### # git branch -M nama_branch
+```
+git branch -M prodStag
+```
+**Deskripsi Penjelasan**
+
+Digunakan untuk merubah nama branch yang aktif, ke nama branch "prodStag".
+### # git merge nama_branch
+```
+git merge devStage
+```
+**Deskripsi Penjelasan**
+
+Digunakan menggabungkan("Merge") branch devStage ke Aktif Branch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Text Styling :
@@ -44,6 +123,3 @@ Text Styling :
 
 <sup>This is a superscript text</sup>  
 
-Use `git status` to list all new or modified files that haven't yet been committed.  
-
-https://github.com/github/gitignore
