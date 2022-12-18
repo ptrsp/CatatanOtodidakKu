@@ -1,5 +1,6 @@
 import managefile_subcode as MF
 import RegexMatcher as RM
+import re,time,os
 statTry=1
 while(statTry==1): ############################################# Perulangan Input Data
     statFile = 0
