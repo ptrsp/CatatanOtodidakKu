@@ -1,0 +1,16 @@
+---
+- name: ffirst-playy
+  hosts: iphost
+  vars_files:
+    - vars/serviceapp.yml
+  tasks:
+    - name: first task
+      shell: echo this is my: {{item}}
+      loop:
+        - one
+        - two
+      register: echo_result
+    - name: second task
+      debug:
+        msg: "STDOUT from previous task: {{item.stdout}}"
+      loop: "{{echo_result['results']}}"

@@ -1,0 +1,29 @@
+---
+- name: ffirst-playy menginstall dan mematikan webserver (httpd)
+  hosts: iphost
+  tasks:
+    - name: ffirst-blockss for redfed
+      block:
+        - name: ffirst task in blockss
+          dnf:
+            name: httpd
+            state: present
+          register: state_package
+          failed_when: state_package.rc==0
+        - name: second task in blockss
+          service:
+            name: httpd
+            state: restarted
+        - name: debug state package
+          debug:
+            msg: "{{state_package}}"
+      rescue:
+        - name: ffirst task in rescue
+          dnf:
+            name: httpd
+            state: latest
+      always:
+        - name: ffirst task in always
+          service:
+            name: firewalld
+            state: restarted

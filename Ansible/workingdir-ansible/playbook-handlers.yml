@@ -1,0 +1,31 @@
+---
+- name: ffirst-playy
+  hosts: iphost
+  tasks:
+    - name: task mengcopy template
+      template:
+        src: templates/index.html
+        dest: /home/anon/
+      notify:
+        - restart http
+  handlers:
+    - name: restart http
+      service:
+        name: httpd
+        state: restarted
+#    - name: task merestart webserver (httpd)
+#      service:
+#        name: httpd
+#        state: restarted
+#    - name: mengcopy file ke managed host
+#      copy:
+#        src: ./template.txt
+#        dest: /home/anon
+#- name: ssecond-playy mengecek ketersediaan file
+#  hosts: myhost.example.com
+#  become: no
+#  tasks:
+#   - name: task mengecek ketersediaan file template.txt
+#      file:
+#        path: /home/anon/template.txt
+#        state: file

@@ -1,0 +1,23 @@
+---
+- name: ffirst-playy
+  hosts: iphost
+  tasks:
+    - name: task menginstall webserver (httpd)
+      dnf:
+        name: httpd
+        state: latest
+      loop: "{{ansible_mounts}}"
+      when: item.mount=="/" and item.size_available > 300000
+- name: ssecond-playy
+  hosts: myhost.example.com
+  become: no
+  tasks:
+    - name: mendapatkan postfix server status
+      command: /usr/bin/systemctl is-active postfix
+      ignore_errors: yes
+      register : result
+    - name: menjalankan httpd berdasarkan status postfix
+      service:
+        name: httpd
+        state: started
+      when: result.rc==0

@@ -1,0 +1,39 @@
+---
+- name: ffirst-playy menginstall dan mematikan webserver (httpd)
+  hosts: iphost
+#  force_handlers: True
+  vars:
+    boool: true
+  tasks:
+#    - name: Contoh Task Gagal
+#      user:
+#        name: guestuser
+#        state: present
+#        group: admin
+#      ignore_errors: yes
+#      notify:
+#        - restart-firewalld
+#      when: boool == false
+#      notify:
+#        - restart-firewalld
+    - name: mencoba error when
+      command: /usr/bin/systemctl is-active postfix
+      register: result
+#      failed_when: result.rc==0
+    - name: log mencoba error
+      debug:
+        msg: "{{result}}"
+#      failed_when: result.rc==0
+#      changed_when: result.rc==0
+    - name: task merestart webserver (httpd)
+      service:
+        name: httpd
+        state: restarted
+      changed_when: false
+#      notify:
+#        - rf
+  handlers:
+    - name: rf
+      service:
+        name: firewalld
+        state: restarted

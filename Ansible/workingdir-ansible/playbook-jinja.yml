@@ -1,0 +1,29 @@
+---
+- name: ffirst-playy menginstall dan mematikan webserver (httpd)
+  hosts: iphost
+  gather_facts : no
+# remote_user: webhostuser
+# become: no
+# become_user: root
+  tasks:
+#    - name: task menginstall webserver (httpd)
+#      dnf:
+#        name: httpd
+#        state: present
+- name: ssecond-playy mengecek ketersediaan file
+  hosts: myhost.example.com
+#  become: no
+  gather_facts: no
+  vars:
+    users:
+      - myuser: rocky
+        noid: '3'
+      - myuser: root
+        noid: '2'
+      - myuser: santoz
+        noid: '1'
+  tasks:
+    - name: task mengecek ketersediaan file template.txt
+      template:
+        src: templates/jintemp.jinja2
+        dest: /home/

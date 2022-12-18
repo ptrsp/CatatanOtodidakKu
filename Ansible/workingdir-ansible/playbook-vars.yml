@@ -1,0 +1,33 @@
+---
+- name: ffirst-playy menginstall dan merestart service {{varG}}
+  hosts: iphost
+  gather_facts : no
+  vars:
+    servicess:
+      web: firewalld
+      con: httpd
+#    varG: firewalld
+#  vars_files:
+#    - vars/evars.yml
+  tasks:
+    - name: task menginstall service {{servicess['web']}}
+      dnf:
+        name: "{{servicess['web']}}"
+        state: present
+    - name: task merestart service {{servicess['web']}}
+      service:
+        name: "{{servicess['web']}}"
+        state: started
+      register: varDebug
+    - name: print log debug merestart service
+      debug:
+        var: varDebug
+
+#- name: ssecond-playy mengecek ketersediaan file
+#  hosts: myhost.example.com
+#  become: no
+#  tasks:
+#    - name: task mengecek ketersediaan file template.txt
+#      file:
+#        path: /home/anon/template.txt
+#        state: file
