@@ -25,3 +25,18 @@ class RegexMatcher:
             return self.sString
         else:
             return "False"
+    def extMatcher(self,ext):
+        """Fungsi Untuk Mencocokan Ke Sebuah Ekstensi (Cth: .jpg,.yml)
+        extMatcher(self,ext):
+        Args :
+            ext(string) : ekstensi yang ingin digunakan
+        Returns :
+            Sebuah sebuah bool True atau False dan number indeks kecocokan awal
+        """
+        self.ext="(\\"+ext+")$"
+        if(re.search(self.ext,self.sString)):
+            r = re.search(self.ext,self.sString)
+            indeks = r.start()
+            return True,indeks
+        else:
+            return False,0
