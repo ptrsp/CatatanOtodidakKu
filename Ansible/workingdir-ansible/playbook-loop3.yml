@@ -1,0 +1,22 @@
+---
+- name: ffirst-playy
+  hosts: iphost
+#  vars_files:
+#    - vars/serviceapp.yml
+  tasks:
+    - name: first task
+      user:
+        name: "{{item.user}}"
+        state: absent
+        group: "{{item.group}}"
+        remove: yes
+      loop:
+        - user: peiter
+          group: admin
+        - user: pasaribu
+          group: admin
+      register: create_user
+    - name: second task
+      debug:
+        msg: "{{item}}"
+      loop: "{{create_user['results']}}"

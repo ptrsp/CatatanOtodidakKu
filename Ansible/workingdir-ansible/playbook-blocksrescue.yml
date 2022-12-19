@@ -1,0 +1,28 @@
+---
+- name: ffirst-playy menginstall dan mematikan webserver (httpd)
+  hosts: iphost
+  tasks:
+    - name: ffirst-blockss for redfed
+      block:
+        - name: ffirst task in blockss redfed
+          dnf:
+            name: httpd
+            state: latest
+        - name: second task in blockss redfed
+          service:
+            name: httpd
+            state: restarted
+      when: ansible_distribution=="RedHat" or ansible_distribution=="Fedora"
+#      when: ansible_distribution=="Ubuntu" or ansible_distribution=="Debian"
+    - name: ffirst-blockss for ubdeb
+      block:
+        - name: ffirst task in blockss ubdeb
+          apt:
+            name: httpd
+            state: latest
+        - name: second task in blockss ubdeb
+          apt:
+            name: httpd
+            state: restarted
+      when: ansible_distribution=="Ubuntu" or ansible_distribution=="Debian"
+#      when: ansible_distribution=="RedHat" or ansible_distribution=="Fedora"

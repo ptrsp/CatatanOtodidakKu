@@ -1,0 +1,26 @@
+---
+- name: ffirst-playy menginstall dan mematikan webserver (httpd)
+  hosts: iphost
+#  gather_facts: no
+  tasks:
+#    - name: task menginstall webserver (httpd)
+#      dnf:
+#        name: httpd
+#        state: present
+#    - name: task merestart webserver (httpd)
+#      service:
+#        name: httpd
+#        state: restarted
+    - name: menampilkan ansible__facts {{ansible_facts["ansible_local"]["custom"]["identity"]["hostname"]}}
+      debug:
+        var: ansible_facts["enp0s8"]["ipv4"]
+#         msg: >
+#              The {{ansible_facts["fqdn"]}} and IP {{ansible_facts["default_ipv4"]["address"]}}
+#- name: ssecond-playy mengecek ketersediaan file
+#  hosts: myhost.example.com
+#  become: no
+#  tasks:
+#    - name: task mengecek ketersediaan file template.txt
+#      file:
+#        path: /home/anon/template.txt
+#        state: file

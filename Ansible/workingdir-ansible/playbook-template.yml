@@ -1,0 +1,28 @@
+---
+- name: ffirst-playy menginstall dan mematikan webserver (httpd)
+  hosts: iphost
+# gather_facts : no
+# remote_user: webhostuser
+# become: no
+# become_user: root
+  tasks:
+    - name: task menginstall webserver (httpd)
+      dnf:
+        name: httpd
+        state: present
+    - name: task merestart webserver (httpd)
+      service:
+        name: httpd
+        state: restarted
+    - name: mengcopy file ke managed host
+      copy:
+        src: ./template.txt
+        dest: /home/anon
+- name: ssecond-playy mengecek ketersediaan file
+  hosts: myhost.example.com
+  become: no
+  tasks:
+    - name: task mengecek ketersediaan file template.txt
+      file:
+        path: /home/anon/template.txt
+        state: file
