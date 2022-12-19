@@ -1,0 +1,7 @@
+#mhost1.com ansible_host = 10.0.0.2
+myhost.example.com ansible_host=10.0.0.2
+
+[iphost]
+10.0.0.2 varH=httpdx
+[iphost:vars]
+varG=firewalld

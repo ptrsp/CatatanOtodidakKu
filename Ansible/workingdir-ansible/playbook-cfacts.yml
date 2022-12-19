@@ -1,0 +1,23 @@
+---
+- name: ffirst-playy memindahkan custom facts ke managed host
+  hosts: iphost
+  vars:
+    filex: custom.fact
+    pathx: /etc/ansible/facts.d/
+  tasks:
+    - name: task memastikan direktori ada
+      file:
+        state: directory
+        recurse: yes
+        path: "{{pathx}}"
+    - name: mengcopy file custom facts ke managed host
+      copy:
+        src: "{{filex}}"
+        dest: "{{pathx}}"
+- name: fetching custom facts
+  hosts: myhost.example.com
+  become: no
+  tasks:
+    - name: task mengambil value custom facts hostname
+      debug:
+        msg: "{{ansible_facts['ansible_local']['custom']['identity']['hostname']}}"

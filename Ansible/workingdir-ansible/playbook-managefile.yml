@@ -1,0 +1,42 @@
+---
+- name: ffirst-playy Demo all module manage file
+  hosts: iphost
+# gather_facts : no
+# remote_user: webhostuser
+# become: no
+# become_user: root
+  tasks:
+#    - name: percobaan module File
+#      file:
+#        src: /home/anon/indexF.html
+#        path: /home/indexF.html
+#        owner: u2
+#        group: u2
+#        mode: '777'
+#        state: hard
+    - name: percobaan module Copy
+      copy:
+        src: templates/index.html
+        dest: /home/indexC.html
+    - name: percobaan module File
+      file:
+        path: /home/indexC.html
+        owner: u2
+        group: u2
+        mode: '777'
+    - name: mengcopy file ke managed host
+      fetch:
+        src: /home/indexF.html
+        dest: templates/indexFe.html
+    - name: percobaan module Lineinfile
+      lineinfile: 
+        path: /home/indexC.html
+        line: 'Peiter Solarso Pasaribu Lineinfile'
+        state: present
+    - name: percobaan Module Blockinfile
+      blockinfile:
+        path: /home/indexF.html
+        block: |
+          First Blockinfile
+          Second Blockinfile
+        state: present

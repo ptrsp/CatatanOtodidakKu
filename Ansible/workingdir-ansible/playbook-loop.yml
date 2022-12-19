@@ -1,0 +1,24 @@
+---
+- name: ffirst-playy menginstall/memastikan ketersediaan aplikasi
+  hosts: iphost
+  vars_files:
+    - vars/serviceapp.yml
+  tasks:
+    - name: install service {{app_name}}
+      dnf:
+        name: "{{item}}"
+        state: present
+      loop:
+        - "{{app_name}}"
+
+- name: ssecond-playy menjalankan aplikasi
+  hosts: myhost.example.com
+  gather_facts: no
+  vars_files:
+    - vars/serviceapp.yml
+  tasks:
+    - name: start service {{app_name}}
+      service:
+        name: "{{item}}"
+        state: started
+      loop: "{{app_name}}"
