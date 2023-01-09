@@ -1,0 +1,36 @@
+version: "3.2"
+services:
+  database:
+    image: imagepp1_db:1.0
+    build: Dockerfile/DBImage/
+    container_name: ${DB_CONTAINER_NAME}
+    volumes:
+      - type: volume
+        source: rm_volume
+        target: /database
+        
+    restart: always
+#    environment:
+#      - MYSQL_ROOT_PASSWORD: rahasia
+#      - MYSQL_DATABASE: db_candidateweb
+    env_file:
+      - .env
+  website:
+    depends_on:
+      - database
+    image: imagepp1_web:1.0
+    build: Dockerfile/WEBImage/
+    container_name: ${WEB_CONTAINER_NAME}
+    ports:
+#      - 8000:80
+      - ${WEB_MAPPING_PORT}:${WEB_CONTAINER_PORT}
+    restart: always
+    env_file:
+      - .env
+volumes:
+  rm_volume:
+    driver: vieux/sshfs
+    driver_opts:
+      allow_other: ""
+      sshcmd: peiter@192.168.1.10:/home/peiter/remote_volume
+      password: 1
