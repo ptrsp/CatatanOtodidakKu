@@ -32,5 +32,5 @@ volumes:
     driver: vieux/sshfs
     driver_opts:
       allow_other: ""
-      sshcmd: peiter@192.168.1.10:/home/peiter/remote_volume
+      sshcmd: "${user_rmvolume}@${ip_rmvolume}:${dir_rmvolume}"
       password: 1
