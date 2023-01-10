@@ -31,6 +31,6 @@ volumes:
   rm_volume:
     driver: vieux/sshfs
     driver_opts:
-      allow_other: ""
-      sshcmd: "${user_rmvolume}@${ip_rmvolume}:${dir_rmvolume}"
-      password: 1
+#      allow_other: ""
+      sshcmd: "${rmvolume_user}@${rmvolume_ip}:${rmvolume_dir}"
+#      password: 1
