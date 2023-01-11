@@ -25,4 +25,10 @@ Pada project portofolio #1, ini diharapkan ketiga virtual machine sudah menjadi 
 ### Di Docker Node :
 - env :
   - Perhatikan variable rmvolume_ip dan rmvolume_user, sesuaikan value variable tersebut dengan informasi instance remote volume.
-### Kondisi Di Control Node dan Docker Node dan Remote Volume Node Yang Saling Berhubungan
+### Di Control Node - Docker Node - Remote Volume Node
+- Ketahuilah Project ini akan mengimplementasikan partisi untuk keperluan remote volume. Baik pada file playbook ansible, file .env docker, dan unused storage (free partisi) di linux semuanya harus saling berhubungan. Jadi pastikan masing saling berkaitan. Jangan sampai, pada playbook merujuk ke free partisi /dev/sdb tetapi pada kenyataannya di remote instance free partisinya terdapat pada /dev/sdc. atau case lain, playbook memounting partisi ke /remote_volume tetapi environment variable (file .env docker) malah ter-set bukan ke /remote_volume
+
+## Cara Mengimplementasikan Project Ini
+1. Pastikan catatan catatan diatas sudah sesuai.
+2. Download Source Code, Dengan melakukan git clone terhadap repo ini.
+3. Jalankan Playbook.
