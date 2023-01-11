@@ -1,4 +1,6 @@
 # Project Portofolio #1 : Deploying Container APP (From Docker Compose) With Remote Volume Using Automation Ansible
+**Gambaran Project Portofolio #1**
+![gpp1](./images/flowpp1.jpg)
 ## Informasi Environment/Tools
 * Virtual Machine Pertama  - RedHat 8  (Ansible - Control Node)
 * Virtual Machine Kedua - Ubuntu 18 (Ansible - Managed Node Pertama)  [Untuk Docker Instance]
