@@ -1,3 +1,4 @@
+###PERCOBAAN TAMBAH###
 from subcode_inherimport import Reference
 # from subcode_inherimport import Identity #G2
 # import subcode_inherimport as si #G1
@@ -12,3 +13,4 @@ pe=input("Masukkan Penerbit : ")
 fReference = Reference(fin,lan,tp,pe)
 fReference.wReference("1")
 # fReference = Identity(fin,lan,tp,pe) #G2
+###PERCOBAAN TAMBAH###

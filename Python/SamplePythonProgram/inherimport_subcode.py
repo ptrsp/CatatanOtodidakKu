@@ -1,3 +1,4 @@
+###PERCOBAAN TAMBAH###
 class Identity:
     # fn="Last, FirstName"
     # tp="Title Paper"
@@ -12,3 +13,4 @@ class Reference(Identity):
     def wReference(self, number):
         print("Format Referensi : ")
         print("["+number+"]"+self.fn+", "+self.tp+", "+self.pe)
+###PERCOBAAN TAMBAH###
